@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 // This is getting exported. 
 const app = express();
 
-mongoose.connect("mongodb+srv://Henry:rWeJtaNpCTRPRnjg@cluster0-eoh2g.mongodb.net/test?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://Henry:rWeJtaNpCTRPRnjg@cluster0-eoh2g.mongodb.net/node-angular?retryWrites=true&w=majority")
         .then(() => {
             console.log('Connected to database.');
         })
@@ -30,6 +30,7 @@ app.post("/api/posts", (req, res, next) => {
         content: req.body.content
     });
     console.log(post);
+    post.save();
     res.status(201).json({
         message: 'Post added successful.'
     });
