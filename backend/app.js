@@ -1,9 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const Post = require('./model/post');
+const mongoose = require('mongoose');
 
 // This is getting exported. 
 const app = express();
+
+mongoose.connect("mongodb+srv://Henry:rWeJtaNpCTRPRnjg@cluster0-eoh2g.mongodb.net/test?retryWrites=true&w=majority")
+        .then(() => {
+            console.log('Connected to database.');
+        })
+        .catch(() => {
+            console.log("Connection failed!")
+        });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
