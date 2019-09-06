@@ -6,6 +6,7 @@ const postsRoutes = require('./routes/posts');
 // This is getting exported. 
 const app = express();
 
+// "mongodb+srv://Henry:rWeJtaNpCTRPRnjg@cluster0-eoh2g.mongodb.net/node-angular?retryWrites=true&w=majority"
 mongoose.connect("mongodb+srv://Henry:rWeJtaNpCTRPRnjg@cluster0-eoh2g.mongodb.net/node-angular?retryWrites=true&w=majority")
         .then(() => {
             console.log('Connected to database.');
