@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const postsRoutes = require('./routes/posts');
+const path = require("path");
 
 // This is getting exported. 
 const app = express();
@@ -17,6 +18,7 @@ mongoose.connect("mongodb+srv://Henry:rWeJtaNpCTRPRnjg@cluster0-eoh2g.mongodb.ne
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+app.use("/images", express.static(path.join("./images")));
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
