@@ -1,7 +1,8 @@
 const express = require('express');
-const router = express.Router();
 const User = require("../model/user");
 const bcrypt = require("bcrypt");
+
+const router = express.Router();
 
 
 router.post("/signup", (req, res, next) => {
@@ -9,7 +10,7 @@ router.post("/signup", (req, res, next) => {
         .then(hash => {
             const user = new User({
                 email: req.body.email,
-                password: req.body.password
+                password: hash
         });
         user.save()
             .then(result => {
