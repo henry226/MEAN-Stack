@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { post } from 'selenium-webdriver/http';
+
 
 @Injectable({providedIn: 'root'})
 export class PostsService {
@@ -67,7 +67,6 @@ export class PostsService {
   }
 
   addPost(title: string, content: string, image: File) {
-    //const post: Post = {id: null, title: title, content: content};
     const postData = new FormData();
     postData.append("title", title);
     postData.append("content", content);
